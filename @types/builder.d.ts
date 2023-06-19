@@ -18,6 +18,14 @@ declare module '@gentifly/cache/builder' {
     public keyable: (keyable: string) => this;
 
     /**
+     * This cache stores data in the local memory.
+     * 
+     * @warning It is not recommended to use this cache in a production environment.
+     * @returns CacheBuilder
+     */
+    public local: () => this;
+
+    /**
      * Duration to expire the cache after write in seconds.
      * 
      * @param duration 

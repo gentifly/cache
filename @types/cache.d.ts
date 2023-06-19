@@ -2,6 +2,7 @@ declare module '@gentifly/cache/cache/LoadingCache' {
   export class LoadingCache<K, V> {
     constructor(
       keyable: string,
+      local: boolean,
       expireAfterWrite: number | undefined,
       expireAfterAccess: number | undefined,
       refreshAfterWrite: number | undefined,
