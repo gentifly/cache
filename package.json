@@ -1,6 +1,6 @@
 {
   "name": "@gentifly/cache",
-  "version": "0.0.2-ALPHA",
+  "version": "1.0.0",
   "description": "Cache orchestrator used by Gentifly.",
   "license": "MIT",
   "type": "commonjs",
