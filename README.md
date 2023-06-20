@@ -22,4 +22,4 @@ npm install @gentifly/cache@latest
 
 ## License
 
-[MIT licensed](LICENSE).
+[MIT licensed](LICENSE)
