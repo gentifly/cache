@@ -1,15 +1,11 @@
 import { Redis } from 'ioredis';
 
-import { IProvider } from '@gentifly/zeraph/providers';
+import { Environment } from '@gentifly/environment';
 
-import { Environment } from '@gentifly/zeraph/environment';
-
-export class RedisDatabaseProvider implements IProvider<Redis> {
+export class RedisDatabaseProvider {
   private provider!: Redis;
 
   public prepare = async (): Promise<void> => {
-    console.log('called');
-
     this.provider = new Redis({
       host: Environment.getString('REDIS_HOST'),
       port: Environment.getInt('REDIS_PORT'),

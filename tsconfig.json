@@ -21,6 +21,5 @@
   "exclude": [
     "node_modules",
     "dist"
-  ],
-  "files": ["./node_modules/@gentifly/zeraph/@types/index.d.ts"]
+  ]
 }
