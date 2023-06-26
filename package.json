@@ -1,10 +1,10 @@
 {
   "name": "@gentifly/cache",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Cache orchestrator used by Gentifly.",
   "license": "MIT",
   "type": "commonjs",
-  "typings": "@types/index.d.ts",
+  "types": "@types/index.d.ts",
   "private": false,
   "author": {
     "name": "Vinícius Gutierrez da Silva Rocha",
