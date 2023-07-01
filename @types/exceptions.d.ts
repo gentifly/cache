@@ -1,4 +1,4 @@
-declare module '@gentifly/cache/exceptions' {
+declare module '@gentifly/cache' {
   import { Exception } from '@gentifly/exceptions';
 
   export class CacheKeyCannotBeNullException extends Exception {

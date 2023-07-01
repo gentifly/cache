@@ -1,4 +1,4 @@
-declare module '@gentifly/cache/cache/LoadingCache' {
+declare module '@gentifly/cache' {
   export class LoadingCache<K, V> {
     constructor(
       keyable: string,
