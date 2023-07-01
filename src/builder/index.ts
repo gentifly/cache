@@ -5,7 +5,7 @@ import { CacheKeyCannotBeNullException } from '@gentifly/cache/exceptions';
 export class CacheBuilder {
   private _keyable = '';
 
-  private _local = false;
+  private _local = true;
 
   private _expireAfterWrite: number | undefined;
   private _expireAfterAccess: number | undefined;

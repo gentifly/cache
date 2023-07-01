@@ -69,12 +69,14 @@ export class LoadingCache<K, V> {
    */
   public get = async (key: K): Promise<V | undefined | null> => {
     if (this.isLocal) {
-      const value = this.storage.get(key);
+      let value = this.storage.get(key);
 
       if (!value && this.mapper) {
-        const value = await this.mapper(key);
+        const fetched = await this.mapper(key);
 
-        if (value) {
+        if (fetched) {
+          value = fetched;
+
           this.storage.set(key, value);
         }
 
