@@ -3,7 +3,7 @@ import { LoadingCache } from '@gentifly/cache/cache/LoadingCache';
 import { CacheKeyCannotBeNullException } from '@gentifly/cache/exceptions';
 
 export class CacheBuilder {
-  private _keyable: string | undefined;
+  private _keyable = '';
 
   private _local = false;
 
@@ -45,8 +45,8 @@ export class CacheBuilder {
     return this;
   };
 
-  public build = <K, V> (mapper?: (key: K) => Promise<V>) => {
-    if (!this._keyable) {
+  public build = <K, V> (mapper?: (key: K) => Promise<V | null | undefined>) => {
+    if (!this._local && !this._keyable) {
       throw new CacheKeyCannotBeNullException();
     }
 

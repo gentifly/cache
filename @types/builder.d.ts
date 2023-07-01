@@ -56,6 +56,6 @@ declare module '@gentifly/cache' {
      * @returns LoadingCache<K, V>
      * @throws CacheKeyCannotBeNullException
      */
-    public build: <K, V> (mapper?: (key: K) => Promise<V>) => LoadingCache<K, V>;
+    public build: <K, V> (mapper?: (key: K) => Promise<V | null | undefined>) => LoadingCache<K, V>;
   }
 }

@@ -6,7 +6,7 @@ declare module '@gentifly/cache' {
       expireAfterWrite: number | undefined,
       expireAfterAccess: number | undefined,
       refreshAfterWrite: number | undefined,
-      mapper?: (key: K) => Promise<V>
+      mapper?: (key: K) => Promise<V | undefined | null>
     )
 
     /**

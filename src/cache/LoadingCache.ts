@@ -11,7 +11,7 @@ export class LoadingCache<K, V> {
   private expireAfterAccess: number | undefined;
   private refreshAfterWrite: number | undefined;
 
-  private mapper?: (key: K) => Promise<V>;
+  private mapper?: (key: K) => Promise<V | undefined | null>;
 
   private storage = new Map<K, V>();
 
@@ -21,7 +21,7 @@ export class LoadingCache<K, V> {
     expireAfterWrite: number | undefined,
     expireAfterAccess: number | undefined,
     refreshAfterWrite: number | undefined,
-    mapper?: (key: K) => Promise<V>
+    mapper?: (key: K) => Promise<V | undefined | null>
   ) {
     this.keyable = keyable;
     this.local = local;
@@ -69,12 +69,14 @@ export class LoadingCache<K, V> {
    */
   public get = async (key: K): Promise<V | undefined | null> => {
     if (this.isLocal) {
-      let value = this.storage.get(key);
+      const value = this.storage.get(key);
 
       if (!value && this.mapper) {
-        value = await this.mapper(key);
+        const value = await this.mapper(key);
 
-        this.storage.set(key, value);
+        if (value) {
+          this.storage.set(key, value);
+        }
 
         if (this.expireAfterWrite) {
           setTimeout(() => {
@@ -97,7 +99,9 @@ export class LoadingCache<K, V> {
     if (!serialized && this.mapper) {
       const value = await this.mapper(key);
 
-      await this.put(key, value);
+      if (value) {
+        await this.put(key, value);
+      }
 
       return value;
     }
