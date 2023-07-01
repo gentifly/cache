@@ -1,5 +1,5 @@
 declare module '@gentifly/cache' {
-  import { LoadingCache } from '@gentifly/cache/cache/LoadingCache';
+  import { LoadingCache } from '@gentifly/cache';
 
   export class CacheBuilder {
     /**
